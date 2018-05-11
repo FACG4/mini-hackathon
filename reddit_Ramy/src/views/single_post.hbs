@@ -1,0 +1,70 @@
+<section class="singlePostgvgvg">
+  {{#if posts}}
+    <div class="singlePost">
+      <div class="imgPostSingle">
+        <a href="/post/{{posts.id}}">
+          <img src="{{posts.img_url}}" alt="{{post_title}}">
+        </a>
+      </div>
+        <div class="postDescSingle">
+          <div class="column">
+            <div class="postLikeDivSingle"  >
+              <p id="post{{posts.id}}" class="postsLikesClick{{#if posts.isVoted}} green {{/if}}" >{{posts.count}} likes</p>
+            </div>
+
+          </div>
+          <div class="column">
+            <div class="postTitleSingle">
+              <p>{{posts.post_title}}</p>
+            </div>
+            <div class="postDescreptionSingle">
+              <p>
+                {{posts.post_content}}
+
+              </p>
+            </div>
+            <div class="postOwnerSingle">
+              <a href="/profile/{{posts.userid}}">
+
+                <p>{{posts.user_name}}</p>
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        {{#each posts.comments}}
+        <div class="mainComments" id="{{this.id}}">
+          <div class="commenterDiv">
+            <a href="/profile/{{this.user_id}}">
+              <p>{{this.user_name}}</p>
+            </a>
+          </div>
+
+          <div class="commenterContent">
+
+            <p class="commentContent">{{this.comment_content}}</p>
+          </div>
+
+
+
+
+            <p  id="comment/{{this.id}}" class="{{#if this.isVotedC}}green{{/if}} paragCount">{{this.commentCount}}  likes</p>
+
+
+
+        </div>
+          {{/each}}
+          <div class="" id="commentAdd">
+            <input type="text" name=""  class="addComment">
+          </div>
+    </div>
+
+
+
+
+    {{/if}}
+</section>

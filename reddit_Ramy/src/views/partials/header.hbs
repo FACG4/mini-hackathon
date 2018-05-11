@@ -1,0 +1,28 @@
+<section class="header">
+  <div class="logo left">
+
+
+</div>
+<div class="middle">
+  <div class="sortHeader">
+    <button type="button" name="button">hot</button>
+    <button type="button" name="button">new</button>
+  </div>
+
+</div>
+<div class="right">
+  {{#if username}}
+  <div class="userHeader">
+    <p>{{username}}</p>
+  </div>
+  {{/if}}
+  {{#if logged}}
+  <div class="logout right">
+    <a href="/logout">
+      <button type="button" name="button">Log Out</button>
+    </a>
+  </div>
+
+{{/if}}
+</div>
+</section>
