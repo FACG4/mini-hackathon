@@ -1,11 +1,6 @@
 var validator = require('validator');
 exports.validSignup=(req,cb)=>{
-console.log(req.body,'validation');
 const {username,email,password,cPassword}=req.body
-
-console.log(cPassword,'cPassword');
-console.log(password,'password');
-console.log(password===cPassword,'===');
    return cb(validator.isLength( email,{min:5, max: 50}) &&
    validator.isEmail(email) &&
    validator.isLength( `${username}`,{min:3, max: 50}) &&

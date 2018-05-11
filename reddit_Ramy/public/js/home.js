@@ -5,6 +5,7 @@ postsLikesClickNodes.forEach(node=>{
   let likesCount =Number(node.textContent.split(' likes')[0])
   node.addEventListener('click',e=>{
     // /vote/post/
+    console.log(`/vote/post/${e.target.id}`);
     fetch(`/vote/post/${e.target.id}`,{
       headers:{'content-type':'application/json'},
       method:'GET',

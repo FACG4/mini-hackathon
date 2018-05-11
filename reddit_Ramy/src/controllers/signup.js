@@ -2,18 +2,20 @@ const {addUserQ} = require('./../database/queries/insert_user_q');
 const {hashFun} = require('./bcrypt');
 const {creatToken} = require('./create_token');
 const {validSignup} = require('./valid_signup');
+const {serverError} = require('./error');
+
 exports.post=(req,res)=>{
 
   const {userName,password,email}=req.body
   validSignup(req,(status)=>{
     if (status) {
       hashFun(password,(err,hash)=>{
-        if (err) return res.status(500).send({ error: {errorType:'server', msg: 'Server Error'}})
+        if (err) return serverError(req,res)
        addUserQ(userName,hash,email,(err,result)=>{
-          if (err) return res.status(500).send({ error: {errorType:'server', msg: 'Server Error'}})
+         if (err) return serverError(req,res)
           const data={id:result[0].id,username:result[0].user_name}
          creatToken(data,res,(err,tokenStatus)=>{
-           if (err) return res.status(500).send({ error: {errorType:'server', msg: 'Server Error'}})
+           if (err) return serverError(req,res)
            if(tokenStatus){
              return res.send({ success: true, message: 'User successfully created',redirect:'/'})
            }

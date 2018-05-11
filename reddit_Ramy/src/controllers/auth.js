@@ -6,7 +6,7 @@ exports.verifyAuth=(req,res,next)=>{
         verify(token, process.env.SECRET,(err, decoded)=>{
           if (err) {
             req.logged='changed'
-            res.send('changed')
+            res.send('<h1>Eat the cookie</h1>')
           }
           else{
             req.logged='verified'
