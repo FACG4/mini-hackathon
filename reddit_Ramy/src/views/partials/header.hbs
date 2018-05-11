@@ -1,24 +1,24 @@
 <section class="header">
-  <div class="logo left">
-
+  <div class="logo pull--left">
+    <a href="/"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/82/Reddit_logo_and_wordmark.svg/1280px-Reddit_logo_and_wordmark.svg.png" alt="Logo"></a>
 
 </div>
 
-<div class="right">
+<div class="pull--right">
   {{#if username}}
   <div class="userHeader">
     <p>{{username}}</p>
   </div>
   {{/if}}
   {{#if logged}}
-  <div class="logout right">
+  <div class="logout pull--right">
     <a href="/logout">
       <button type="button" name="button">Log Out</button>
     </a>
   </div>
 {{else}}
 
-<div class="login right">
+<div class="login pull--right">
   <a href="/login">
     <button type="button" name="button">Log In</button>
   </a>
@@ -27,3 +27,4 @@
 {{/if}}
 </div>
 </section>
+<div class="clear"></div>

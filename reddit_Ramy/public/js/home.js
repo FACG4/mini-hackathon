@@ -86,3 +86,10 @@ if (commentAdd) {
   })
 
 }
+if(document.querySelector('.new--post')){
+
+  document.querySelector('.new--post').addEventListener('click',()=>{
+    document.querySelector('.createPostHome').classList.toggle('hidden');
+  })
+}
+  

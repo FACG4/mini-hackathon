@@ -1,190 +1,94 @@
-/* .header { grid-area: header; }
-.main { grid-area: main; }
-.right { grid-area: right; }
-.footer { grid-area: footer; }
 .grid-container {
-  display: grid;
-  grid-template-areas:
-    'header header header header'
-    ' main main main right'
-    ' footer footer footer footer';
-  grid-gap: 10px;
-  background-color: #2196F3;
-  padding: 10px;
+  margin: 0;
+  padding: 0;
 }
-.grid-container > section {
-  background-color: rgba(255, 255, 255, 0.8);
-  text-align: center;
-  padding: 20px 0;
-  font-size: 30px;
-} */
-*{
-  box-sizing: border-box;
-}
-.container{
-  position: absolute;
-    margin: 0 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.header{
-  background-color: #A3E8DD;
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-
-
-}
-.logo{
-width: 150px;
-height: 50px;
-background-image:url('https://cdn-images-1.medium.com/max/1600/1*DFcaAvca6kvNa-6EYMYYdA.png');
-background-size: cover;
-position: fixed;
-left: 0;
-}
-
-.logout{
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  /* position: fixed;
-  right: 0; */
-
-}
-.right{
-position:  fixed;
-right: 0;
-width: 15%;
-  /* align-self: flex-end; */
-  /* margin-left: auto; */
-  display: flex;
-  /* align-items: s; */
-  flex-direction: row;
-
-}
-.right div{
-display: flex;
-align-items: flex-end;
-
-}
-.main{
-  margin-top: 10px;
-  width: 75%;
-}
-.middle{
-  display: flex;
-  align-items: flex-end;
-}
-/* .right{
-  width: 25%
-} */
-.green{
-  color:green;
-}
-
-
-
-
-
-
-.main{
-display: flex;
-flex-direction: column;
-
-}
-.postHome{
-display: flex;
-flex-direction: row;
-border: 1px solid black;
-justify-content: flex-start;
-}
-
-.imgPostHome a img {
-  width: 25%;
-  min-width: 100px;
-  height: auto;
-}
-.postLikeDiv{
+.createPostHome {
+  width: 600px;
   margin: 0 auto;
-  text-align: center;
-  width: 5%;
-  display: flex;
-  align-items: center;
-}
-.imgPostHome{
-  display: flex;
-  align-items: center;
-  width: 20%;
-}
-.postDescHome{
-  width: 75%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
+  background: #ebebeb;
+  padding: 20px;
+  border-radius: 18px;
+  border: 1px solid #d5620082;
+  z-index: 999;
+  position: absolute;
+  left: 26vw;
 }
 
-
-.singlePost{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  max-width: 600px;
-}
-
-.imgPostSingle,.imgPostSingle a img {
-width: 100%;
-max-width: 600px;
-
-}
-.postDescSingle{
-  border: 1px solid black;
-  display: flex;
-  flex-direction: row;
-}
-.column{
-  display: flex;
-  flex-direction: column;
-}
-p{
-  margin: 5px;
-}
-.postTitleSingle{
-  font-family: sans-serif;
-  font-weight: 600;
-}
-.column ,.postLikeDivSingle{
-  display: flex;
-  justify-content: center;
-}
-.postDescreptionSingle{
-  overflow:  auto;
-}
-.mainComments{
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid black;
-width: 100%;
-}
-.commentContent{
-  text-indent: 50px;
-}
-.addComment{
-  width: 100%;
-}
-/* .votesCount{
-  pointer-events: none;
-} */
-
-.createPostHomeForm input {
+.createPostHome input , .createPostHome textarea , .createPostHome label{
   display: block;
+  margin: 20px;
+  width: 90%;
+  padding: 8px;
+  border: 0;
+  border-radius: 5px;
+}
+
+.createPostHome button {
+  margin: 0 28px;
+  padding: 10px;
+  width: 113px;
+  background: #ef5305;
+  border-radius: 8px;
+  border: 0;
+  color: #f3eded;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.createPostHome .inputfile {
+  display: none;
+}
+
+.upload-btn{
+  margin: 0 28px;
+  padding: 10px;
+  width: 113px;
+  background: #c4c3c3;
+  border-radius: 8px;
+  border: 0;
+  color: #f3eded;
+  font-size: 20px;
+  cursor: pointer;
+ }
+.hidden {
+  display: none;
+}
+
+.new--post {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 30px;
+  height: 30px;
+  background: #e15c00;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+  
+}
+
+.header {
+  background: #f6f3f1;
+  border-bottom: 1px solid #ddd6d6;
+}
+
+.pull--left {
+  float: left;
+}
+
+.pull--right {
+  float: right;
+}
+
+
+.logo img {
+     width: auto;
+    height: 50px;
+    margin: 10px;
+}
+
+.clear {
+  clear: both;
 }
