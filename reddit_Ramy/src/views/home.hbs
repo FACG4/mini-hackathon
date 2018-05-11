@@ -1,0 +1,51 @@
+<section class="mainSection">
+  {{#each posts}}
+
+
+      <div class="postHome">
+        <div class="postLikeDiv">
+
+        <p id="post{{this.id}}" class="postsLikesClick{{#if this.isVoted}} green {{/if}}" >{{this.count}} likes</p>
+      </div>
+        <div class="imgPostHome">
+          <a href="/post/{{this.id}}">
+            <img src="{{this.img_url}}" alt="{{post_title}}">
+          </a>
+        </div>
+          <div class="postDescHome">
+            <div class="postTitleHome">
+              <p>{{this.post_title}}</p>
+            </div>
+            <div class="postContent">
+              <p>{{this.post_content}}</p>
+
+            </div>
+              <div class="postOwnerHome">
+                <a href="/profile/{{this.userid}}">
+                  <p>{{this.user_name}}</p>
+                </a>
+              </div>
+
+          </div>
+      </div >
+
+    {{/each}}
+
+    <!-- <div class="postDescHome">
+      <div class="postTitleHome">
+        </div>
+
+
+      </div> -->
+
+<!--
+
+        </div>
+
+              <div class="postInfoHome">
+
+              </div>
+        </div>
+
+    </div> -->
+</section>

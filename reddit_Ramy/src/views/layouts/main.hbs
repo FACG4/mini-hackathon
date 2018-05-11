@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{>head}}
+</head>
+<body class="grid-container">
+
+    <section class="header">
+          {{>header}}
+
+    </section>
+    <div class="container">
+
+      <section class="rightSec">
+        <h1>{{posts.right}}</h1>
+        {{#if posts.right}}
+        {{>right}}
+        {{/if}}
+      </section>
+    <section class="body ">
+
+      {{{body}}}
+
+
+    </section>
+    <section class="footer">
+    {{>footer}}
+    </section>
+  </div>
+
+</body>
+<script type="text/javascript" src="/js/{{jsFile}}.js">
+
+</script>
+</html>
