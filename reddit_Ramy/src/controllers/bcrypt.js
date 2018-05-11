@@ -1,4 +1,5 @@
 const {hash,compare} = require('bcrypt');
+
 exports.compareFun=(strPass,hashPassword,cb)=>{
     compare(strPass, hashPassword,(error, status)=> {
       if (error) return cb(error)

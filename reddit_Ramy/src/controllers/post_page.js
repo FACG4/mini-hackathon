@@ -4,36 +4,39 @@ const {getCommentsVotesCountQ} = require('./../database/queries/get_comments_vot
 const {getCommnetsQ} = require('./../database/queries/get_comments_q');
 const {checkPostIsVotedByUser,checkcommentIsVotedByUser} = require('./../database/queries/check_is_voted_by_user');
 const {renderHomeAndProfile,renderSinglePost} = require('./render_home_and_profile');
+const {serverError,clientError} = require('./error');
 
 exports.postPage=(req,res)=>{
   const postId=req.params.postId
     getSinglePostQ(postId,(err,result)=>{
-      if (err) return res.status(500).send({ error: {errorType:'server', msg: 'Server Error'}})
+      console.log(result,8888);
+      if (err) return serverError(req,res)
+      if (result) {
+
             getVotesCountQ(postId,(err,count)=>{
-              if  (err) return res.status(500).send({ error: {errorType:'server', msg: 'Server Error'}})
+              if (err) return serverError(req,res)
               result.count=count;
               if (req.userInfo) {
               checkPostIsVotedByUser(req.userInfo.id,postId,(err,status)=>{
-                if  (err) return res.status(500).send({ error: {errorType:'server', msg: 'Server Error'}})
+                if (err) return serverError(req,res)
                 result.isVoted=status
               })
             }
             getCommnetsQ(postId,(err,comments)=>{
-              if  (err) return res.status(500).send({ error: {errorType:'server', msg: 'Server Error'}})
+              if (err) return serverError(req,res)
               result.comments=comments
 
               let counter=0;
-              console.log(result, 'romio');
               if (comments.length>0) {
 
               result.comments.forEach(item=>{
                 getCommentsVotesCountQ(item.id,(err,count)=>{
-                  if  (err) return res.status(500).send({ error: {errorType:'server', msg: 'Server Error'}})
+                  if (err) return serverError(req,res)
                   item.commentCount=count
                   ++counter
                   if (req.userInfo) {
                     checkcommentIsVotedByUser(req.userInfo.id,item.id,(err,isVotedComment)=>{
-                      if  (err) return res.status(500).send({ error: {errorType:'server', msg: 'Server Error'}})
+                      if (err) return serverError(req,res)
                       item.isVotedC=isVotedComment
                     })
                   }
@@ -50,7 +53,12 @@ exports.postPage=(req,res)=>{
 
             })
               })
+            }else{
+              clientError(req,res)
+            }
 
       })
+
+
 
 }

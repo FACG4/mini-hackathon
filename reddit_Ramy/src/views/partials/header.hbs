@@ -3,13 +3,7 @@
 
 
 </div>
-<div class="middle">
-  <div class="sortHeader">
-    <button type="button" name="button">hot</button>
-    <button type="button" name="button">new</button>
-  </div>
 
-</div>
 <div class="right">
   {{#if username}}
   <div class="userHeader">
@@ -22,6 +16,13 @@
       <button type="button" name="button">Log Out</button>
     </a>
   </div>
+{{else}}
+
+<div class="login right">
+  <a href="/login">
+    <button type="button" name="button">Log In</button>
+  </a>
+</div>
 
 {{/if}}
 </div>
