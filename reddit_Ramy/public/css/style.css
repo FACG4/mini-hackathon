@@ -68,3 +68,27 @@
   cursor: pointer;
   
 }
+
+.header {
+  background: #f6f3f1;
+  border-bottom: 1px solid #ddd6d6;
+}
+
+.pull--left {
+  float: left;
+}
+
+.pull--right {
+  float: right;
+}
+
+
+.logo img {
+     width: auto;
+    height: 50px;
+    margin: 10px;
+}
+
+.clear {
+  clear: both;
+}
