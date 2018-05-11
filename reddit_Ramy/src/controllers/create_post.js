@@ -1,8 +1,8 @@
 const {validPost} = require('./valid_post');
 const {addPostQ} = require('./../database/queries/add_post_q');
+const {serverError} = require('./error');
 
 exports.createPost=(req,res)=>{
-  console.log('hi');
   const userId=req.userInfo.id
   const postTitle=req.body.postTitle.trim().toLowerCase()
   const postContent=req.body.postContent.trim().toLowerCase()
@@ -14,7 +14,7 @@ exports.createPost=(req,res)=>{
       imageFile.mv('./src/database/images/'+imgUrl, (err)=> {
   if (err) return   console.log(err); //500 error
   addPostQ(userId,postTitle,postContent,imgUrl,(err,result)=>{
-    if (err)   console.log(err); //500 error
+    if (err) return serverError(req,res)
     res.redirect('/')
 
   })
@@ -23,7 +23,7 @@ exports.createPost=(req,res)=>{
 
     }
     else {
-      res.send({errMsg:'invalid post inputs'})
+      serverError(req,res)
     }
   })
 }

@@ -12,7 +12,7 @@ CREATE TABLE posts (
 id SERIAL PRIMARY KEY,
 user_id INTEGER NOT NULL REFERENCES users(id),
 post_title VARCHAR(100) NOT NULL CHECK (length(post_title) >= 4),
-post_content VARCHAR NOT NULL CHECK (length(post_content) >=10),
+post_content VARCHAR NOT NULL CHECK (length(post_content) >=3),
 img_url VARCHAR
 );
 

@@ -1,3 +1,5 @@
+const {serverError} = require('./error');
+
 exports.renderHomeAndProfile=(req,res,result)=>{
     if (req.logged=='verified') {
       const isProfileOwner=req.userInfo.isProfileOwner

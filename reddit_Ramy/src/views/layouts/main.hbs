@@ -5,18 +5,24 @@
 </head>
 <body class="grid-container">
 
-    <section class="header">
-          {{>header}}
+  {{#if error.serverError}}
+  {{{body}}}
+  {{else}}
 
+
+  <section class="header">
+    {{>header}}
+
+  </section>
+  <div class="container">
+
+    <section class="rightSec">
+      {{#if posts.right}}
+      {{#if logged}}
+      {{>right}}
+      {{/if}}
+      {{/if}}
     </section>
-    <div class="container">
-
-      <section class="rightSec">
-        <h1>{{posts.right}}</h1>
-        {{#if posts.right}}
-        {{>right}}
-        {{/if}}
-      </section>
     <section class="body ">
 
       {{{body}}}
@@ -24,9 +30,11 @@
 
     </section>
     <section class="footer">
-    {{>footer}}
+      {{>footer}}
     </section>
   </div>
+
+{{/if}}
 
 </body>
 <script type="text/javascript" src="/js/{{jsFile}}.js">
