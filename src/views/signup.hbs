@@ -1,0 +1,21 @@
+<form class="login_signup" action="/signUp" method="post" id="signUpform" encType="multipart/form-data">
+  <h1>Sign Up It's free!</h1>
+  <label for="userName">User Name</label>
+  <input type="text" name="username" id="userName" placeholder="user name ...">
+  <h6 id="existUser"></h6>
+  <i class="fas fa-exclamation-circle" id='userNameIcon'></i>
+  <label for="email">User Email</label>
+  <input type="text" name="email" id="email" placeholder="user email ...">
+  <h6 id="existEmail"></h6>
+  <i class="fas fa-exclamation-circle" id='emailIcon'></i>
+  <input type="file" name="imageFile" class="inputfile" id="imageFile" >
+  <label for="password">Password</label>
+  <input type="text" name="password" id="password" placeholder="password ...">
+  <i class="fas fa-exclamation-circle" id='passwordIcon'></i>
+  <label for="cPassword">Confirm Password</label>
+  <input type="text" name="cpassword" id="cPassword" placeholder="password ...">
+  <i class="fas fa-exclamation-circle" id='cPasswordIcon'></i>
+  <h6 id="errorMsg"></h6>
+  <input type="submit" value="Submit" class='signupSubmit' id='signupSubmit'>
+
+</form>
