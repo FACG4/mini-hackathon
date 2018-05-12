@@ -1,26 +1,34 @@
 <section class="header">
   <div class="logo pull--left">
-    <a href="/"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/82/Reddit_logo_and_wordmark.svg/1280px-Reddit_logo_and_wordmark.svg.png" alt="Logo"></a>
+    <a href="/"><img src="https://preview.ibb.co/bHNQTy/1280px_Reddit_logo_and_wordmark.png" alt="Logo"></a>
 
 </div>
 
-<div class="pull--right">
+<div class="pull--right user--info">
   {{#if username}}
   <div class="userHeader">
-    <p>{{username}}</p>
+    <i class="fas fa-sort-down pull--left"></i>
+    <img class="pull--left" src="https://avatars2.githubusercontent.com/u/33287181?s=88&v=4" alt="#">
+    <p class="pull--right">{{username}}</p>
   </div>
   {{/if}}
   {{#if logged}}
-  <div class="logout pull--right">
+  <div class="logout pull--right hidden">
+      <a href="/profile/{{profileid}}">
+      Profile
+    </a>
     <a href="/logout">
-      <button type="button" name="button">Log Out</button>
+      Log Out
     </a>
   </div>
 {{else}}
 
 <div class="login pull--right">
-  <a href="/login">
-    <button type="button" name="button">Log In</button>
+  <a class="pull-left" href="/login">
+   Log In
+  </a>
+  <a class="pull-left" href="/signup">
+    Sign Up
   </a>
 </div>
 

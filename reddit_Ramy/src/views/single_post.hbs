@@ -1,6 +1,17 @@
 <section class="singlePostgvgvg">
   {{#if posts}}
     <div class="singlePost">
+            <div class="postTitleSingle">
+              <p>{{posts.post_title}}</p>
+            </div>
+             <div class="postOwnerSingle">
+              <a href="/profile/{{posts.userid}}">
+
+                <p>{{posts.user_name}}</p>
+
+              </a>
+
+            </div>
       <div class="imgPostSingle">
         <a href="/post/{{posts.id}}">
           <img src="{{posts.img_url}}" alt="{{post_title}}">
@@ -14,23 +25,14 @@
 
           </div>
           <div class="column">
-            <div class="postTitleSingle">
-              <p>{{posts.post_title}}</p>
-            </div>
+      
             <div class="postDescreptionSingle">
               <p>
                 {{posts.post_content}}
 
               </p>
             </div>
-            <div class="postOwnerSingle">
-              <a href="/profile/{{posts.userid}}">
-
-                <p>{{posts.user_name}}</p>
-
-              </a>
-
-            </div>
+           
 
           </div>
 
