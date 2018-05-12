@@ -4,7 +4,7 @@ const controllers = require('./controllers');
 const bodyParser = require('body-parser');
 const exhbs = require('express-handlebars');
 const path = require('path');
-// const favicon = require('serve-favicon');
+const favicon = require('serve-favicon');
 
 const fileUpload = require('express-fileupload');
 const helpers = require("./views/helpers/index");
@@ -27,7 +27,7 @@ app.set('port', process.env.PORT || 3000);
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(express.static(path.join(__dirname, 'database','images')));
 app.use(express.static(path.join(__dirname, 'database','profile_images')));
-// app.use(favicon(path.join(__dirname, '..', 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, '..', 'public', 'favicon.ico')));
 
 
 
