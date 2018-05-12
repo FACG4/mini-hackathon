@@ -4,6 +4,7 @@ const {getProfileInfoQ} = require('./../database/queries/get_profile_info_q');
 const {checkPostIsVotedByUser} = require('./../database/queries/check_is_voted_by_user');
 const {renderHomeAndProfile} = require('./render_home_and_profile');
 const {serverError,clientError} = require('./error');
+const {getProfileImg} = require('./../database/queries/get_profile_img');
 
 exports.profiles=(req,res)=>{
   const profileId=req.params.profileId
@@ -23,6 +24,10 @@ exports.profiles=(req,res)=>{
             if (err) return serverError(req,res)
             item.count=count;
             if (req.userInfo) {
+              getProfileImg(req.userInfo.id,(err,image)=>{
+                if (err) return serverError(req,res)
+                result.img_profile=image
+              })
               req.userInfo.isProfileOwner=req.userInfo.id==profileId
               const userId=req.userInfo.id
               checkPostIsVotedByUser(req.userInfo.id,item.id,(err,status)=>{
