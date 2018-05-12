@@ -12,7 +12,7 @@ exports.createPost=(req,res)=>{
       const imgUrl=`/${Date.now()}.jpg`
 
       imageFile.mv('./src/database/images/'+imgUrl, (err)=> {
-  if (err) return   console.log(err); //500 error
+        if (err) return serverError(req,res)
   addPostQ(userId,postTitle,postContent,imgUrl,(err,result)=>{
     if (err) return serverError(req,res)
     res.redirect('/')

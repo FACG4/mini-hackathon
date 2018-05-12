@@ -10,10 +10,13 @@ exports.profiles=(req,res)=>{
 
   getProfileInfoQ(profileId,(err,profileInfo)=>{
     if (err) return serverError(req,res)
-    if (profileInfo.length>0) {
+    if (profileInfo) {
       getUserPostsQ(profileId,(err,result)=>{
+        result.profileInfo=profileInfo.img_profile
+
         if (err) return serverError(req,res)
         if (result.length>0) {
+
         let counter =0;
         result.forEach(item=>{
           getVotesCountQ(item.id,(err,count)=>{
@@ -37,7 +40,6 @@ exports.profiles=(req,res)=>{
           })
         })
       }else{
-        result.profileInfo=profileInfo
         result.right=false
         renderHomeAndProfile(req,res,false)
 

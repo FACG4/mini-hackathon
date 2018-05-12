@@ -1,6 +1,20 @@
 <section class="mainSection">
-  {{#each posts}}
 
+{{#if isProfileOwner}}
+<form class="" action="/profileImage" method="post" encType="multipart/form-data">
+
+     <label for="inputfile" class="btn upload-btn"><i class="far fa-image"></i>Upload Your Profile</label>
+      <input type="file" name="imageFile" class="inputfile" id="inputfile" >
+      <button type="submit" name="button">Upload</button>
+
+</form>
+
+{{/if}}
+
+
+<img src="{{posts.profileInfo.img_profile}}" alt="">
+
+  {{#each posts}}
 
       <div class="postHome">
         <div class="postLikeDiv">
@@ -31,21 +45,5 @@
 
     {{/each}}
 
-    <!-- <div class="postDescHome">
-      <div class="postTitleHome">
-        </div>
 
-
-      </div> -->
-
-<!--
-
-        </div>
-
-              <div class="postInfoHome">
-
-              </div>
-        </div>
-
-    </div> -->
 </section>
