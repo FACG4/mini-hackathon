@@ -10,8 +10,10 @@
 </form>
 
 {{/if}}
-<img  src="{{posts.profileInfo.img_profile}}" alt="">
-{{log posts.profileInfo.img_profile}}
+{{#if posts.profileInfo.img_profile }}
+<img  class="imageProfile" src="{{posts.profileInfo.img_profile}}" alt="">
+
+{{/if}}
   {{#each posts}}
 
 
