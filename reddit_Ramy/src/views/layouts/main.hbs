@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{>head}}
+</head>
+<body class="grid-container">
+
+  {{#if error.serverError}}
+  {{{body}}}
+  {{else}}
+
+
+  <section class="header">
+    {{>header}}
+
+  </section>
+  <div class="container">
+
+    <section class="rightSec">
+      {{#if posts.right}}
+      {{#if logged}}
+      {{>right}}
+      {{/if}}
+      {{/if}}
+    </section>
+    <section class="body ">
+
+      {{{body}}}
+
+
+    </section>
+    <section class="footer">
+      {{>footer}}
+    </section>
+  </div>
+
+{{/if}}
+
+</body>
+<script type="text/javascript" src="/js/{{jsFile}}.js">
+
+</script>
+</html>

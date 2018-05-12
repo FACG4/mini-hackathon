@@ -1,0 +1,58 @@
+<section class="mainSection">
+
+{{#if isProfileOwner}}
+<form class="" action="/profileImage" method="post" encType="multipart/form-data">
+
+     <label for="inputfile" class="btn upload-btn"><i class="far fa-image"></i>Upload Your Profile</label>
+      <input type="file" name="imageFile" class="inputfile hidden" id="inputfile"  required>
+      <button type="submit" name="button">Upload</button>
+
+</form>
+
+{{/if}}
+{{#if posts.profileInfo.img_profile }}
+<img  class="imageProfile" src="{{posts.profileInfo.img_profile}}" alt="">
+
+{{/if}}
+  {{#each posts}}
+
+
+      <div class="postHome">
+
+      <div class="postOwnerHome">
+                <a href="/profile/{{this.userid}}">
+                  {{#if this.img_profile }}
+                  <img class="pull--left" src="{{this.img_profile}}" alt="{{this.user_name}}">
+                  {{/if}}
+                  <p class="pull--left">{{this.user_name}}</p>
+                </a>
+              </div>
+              <div class="clear"></div>
+     <div class="postTitleHome" >
+              <p>{{this.post_title}}</p>
+      </div>
+        <div class="imgPostHome">
+          <a href="/post/{{this.id}}">
+            <img src="{{this.img_url}}" alt="{{post_title}}">
+          </a>
+        </div>
+          <div class="postDescHome">
+
+            <div class="postContent">
+              <p>{{this.post_content}}</p>
+
+            </div>
+
+
+          </div>
+           <div class="postLikeDiv">
+
+                   <p id="post{{this.id}}" class="postsLikesClick{{#if this.isVoted}} green {{/if}}" ><i class="fas fa-thumbs-up" id="post{{this.id}}"></i> {{this.count}} likes</p>
+
+           </div>
+      </div >
+
+    {{/each}}
+
+
+</section>
