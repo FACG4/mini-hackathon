@@ -3,6 +3,7 @@ let postsLikesClickNodes = Array.prototype.slice.call(postsLikesClick)
 postsLikesClickNodes.forEach(node=>{
   console.log(node,'nooooononononon');
   let likesCount =Number(node.textContent.split(' likes')[0])
+  console.log(likesCount,'likes countttttttttttt');
   node.addEventListener('click',e=>{
     // /vote/post/
     console.log(`/vote/post/${e.target.id}`);
@@ -15,14 +16,13 @@ postsLikesClickNodes.forEach(node=>{
        if(res.success&&res.message=='inserted'){
          console.log(res.message);
         node.style.color='green';
-        likesCount++
-        node.innerHtml='<i class="fas fa-thumbs-up" id="post{{this.id}}"></i>' + likesCount+' likes'
+        location.reload();
       }
       else if (res.success&&res.message=='deleted') {
         console.log(res.message);
         node.style.color='black';
         likesCount--
-        node.innerHtml='<i class="fas fa-thumbs-up" id="post{{this.id}}"></i>' + likesCount+' likes'
+        location.reload();
         // node.textContent=`${likesCount--} likes`
       }
     })
