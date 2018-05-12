@@ -86,6 +86,9 @@ if (isUserName(userName.value)&&userName.value.length>2 && isEmail(email.value)&
       }
       else if (res.error&& res.error.errorType=='client') {
           errorMsg.textContent = res.error.msg;
+      }else{
+
+        window.location='/'
       }
 
     })

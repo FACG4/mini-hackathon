@@ -1,4 +1,4 @@
-const {toggleVoteQ} = require('./../database/queries/toggle_vote_q');
+ const {toggleVoteQ} = require('./../database/queries/toggle_vote_q');
 const {serverError} = require('./error');
 
 exports.votePost=(req,res)=>{

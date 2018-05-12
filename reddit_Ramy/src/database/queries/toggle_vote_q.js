@@ -2,7 +2,6 @@ const dbConnect = require('./../db_connect');
 const escape = require('pg-escape');
 
 exports.toggleVoteQ=(table,value,userId,cb)=>{
-  console.log(table,value,userId);
   const sqlSearch = escape(`SELECT * FROM votes_%I WHERE  user_id= %L AND %I_id= %L`, table,`${userId}`,table,`${value}`);
   dbConnect.query(sqlSearch,(errSearch,resultSearch)=>{
     if (errSearch) return cb({errType:`database Error when search for votes (${table})`})

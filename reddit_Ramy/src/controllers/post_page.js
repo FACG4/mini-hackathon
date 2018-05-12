@@ -9,7 +9,6 @@ const {serverError,clientError} = require('./error');
 exports.postPage=(req,res)=>{
   const postId=req.params.postId
     getSinglePostQ(postId,(err,result)=>{
-      console.log(result,8888);
       if (err) return serverError(req,res)
       if (result) {
 

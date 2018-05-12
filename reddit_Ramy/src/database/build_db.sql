@@ -5,7 +5,8 @@ CREATE TABLE users (
 id SERIAL PRIMARY KEY,
 user_name  VARCHAR(50) NOT NULL UNIQUE CHECK (length(user_name) >= 4),
 password VARCHAR(100) NOT NULL CHECK (length(password) >= 6),
-email VARCHAR(50) NOT NULL UNIQUE CHECK(length(user_name) >= 5)
+email VARCHAR(50) NOT NULL UNIQUE CHECK(length(user_name) >= 5),
+img_profile varchar
 );
 
 CREATE TABLE posts (
@@ -45,15 +46,15 @@ PRIMARY KEY  (user_id,comment_id)
 );
 
 
-INSERT INTO users (user_name,password,email)
+INSERT INTO users (user_name,password,email,img_profile)
 VALUES
-  ('ramyalshurafa','$2b$08$qQsXiDB5tLjGzYlXiNo7IeDdQAlbRAPs0EsbJvu28c/p5wqbbnaLa','ramyshurafa@hotmail.com'),
-  ('ramyalshurafa2','$2b$08$qQsXiDB5tLjGzYlXiNo7IeDdQAlbRAPs0EsbJvu28c/p5wqbbnaLa','ramyshurafa@hotmail.com2'),
-  ('ramyalshurafa3','$2b$08$qQsXiDB5tLjGzYlXiNo7IeDdQAlbRAPs0EsbJvu28c/p5wqbbnaLa','ramyshurafa@hotmail.com3'),
-  ('ramyalshurafa4','$2b$08$qQsXiDB5tLjGzYlXiNo7IeDdQAlbRAPs0EsbJvu28c/p5wqbbnaLa','ramyshurafa@hotmail.com4'),
-  ('ramyalshurafa5','$2b$08$qQsXiDB5tLjGzYlXiNo7IeDdQAlbRAPs0EsbJvu28c/p5wqbbnaLa','ramyshurafa@hotmail.com5'),
-  ('ramyalshurafa6','$2b$08$qQsXiDB5tLjGzYlXiNo7IeDdQAlbRAPs0EsbJvu28c/p5wqbbnaLa','ramyshurafa@hotmail.com6'),
-  ('ramyalshurafa7','$2b$08$qQsXiDB5tLjGzYlXiNo7IeDdQAlbRAPs0EsbJvu28c/p5wqbbnaLa','ramyshurafa@hotmail.com7')
+  ('ramyalshurafa','$2b$08$qQsXiDB5tLjGzYlXiNo7IeDdQAlbRAPs0EsbJvu28c/p5wqbbnaLa','ramyshurafa@hotmail.com','https://orig00.deviantart.net/cf55/f/2016/058/f/8/profile_picture_by_diedummydie-d9taee7.jpg'),
+  ('ramyalshurafa2','$2b$08$qQsXiDB5tLjGzYlXiNo7IeDdQAlbRAPs0EsbJvu28c/p5wqbbnaLa','ramyshurafa@hotmail.com2','http://doc.angus.ai/0.0.15/_images/gwenn.jpg'),
+  ('ramyalshurafa3','$2b$08$qQsXiDB5tLjGzYlXiNo7IeDdQAlbRAPs0EsbJvu28c/p5wqbbnaLa','ramyshurafa@hotmail.com3','https://upload.wikimedia.org/wikipedia/commons/d/d1/Malcolm_Turnbull_PEO_%28cropped%29.jpg'),
+  ('ramyalshurafa4','$2b$08$qQsXiDB5tLjGzYlXiNo7IeDdQAlbRAPs0EsbJvu28c/p5wqbbnaLa','ramyshurafa@hotmail.com4','https://randomuser.me/api/portraits/women/30.jpg'),
+  ('ramyalshurafa5','$2b$08$qQsXiDB5tLjGzYlXiNo7IeDdQAlbRAPs0EsbJvu28c/p5wqbbnaLa','ramyshurafa@hotmail.com5','https://randomuser.me/api/portraits/women/21.jpg'),
+  ('ramyalshurafa6','$2b$08$qQsXiDB5tLjGzYlXiNo7IeDdQAlbRAPs0EsbJvu28c/p5wqbbnaLa','ramyshurafa@hotmail.com6','https://randomuser.me/api/portraits/women/84.jpg'),
+  ('ramyalshurafa7','$2b$08$qQsXiDB5tLjGzYlXiNo7IeDdQAlbRAPs0EsbJvu28c/p5wqbbnaLa','ramyshurafa@hotmail.com7','https://randomuser.me/api/portraits/men/96.jpg')
 ;
 
 
