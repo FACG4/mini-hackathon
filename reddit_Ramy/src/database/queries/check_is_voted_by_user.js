@@ -16,7 +16,6 @@ exports.checkcommentIsVotedByUser=(userId,commentId,cb)=>{
     values:[userId,commentId]
   }
   dbConnect.query(sql,(err,exist)=>{
-console.log(err,'11111111111111111111');
     if (err) return cb(err)
     return cb(null,exist.rows[0].exists)
   })

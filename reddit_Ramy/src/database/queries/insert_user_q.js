@@ -9,7 +9,6 @@ exports.addUserQ=(user_name,hashPassword,email,cb)=>{
     values:[user_name.trim().toLowerCase(),hashPassword,email]
     }
     dbConnect.query(sql,(err,result)=>{
-      console.log(err);
       if (err) return cb({errType:'Error in inserting users into database'})
       return cb(null,result.rows)
     })
