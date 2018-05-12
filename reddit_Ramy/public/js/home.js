@@ -6,6 +6,7 @@ postsLikesClickNodes.forEach(node=>{
   node.addEventListener('click',e=>{
     // /vote/post/
     console.log(`/vote/post/${e.target.id}`);
+
     fetch(`/vote/post/${e.target.id}`,{
       headers:{'content-type':'application/json'},
       method:'GET',
@@ -15,13 +16,13 @@ postsLikesClickNodes.forEach(node=>{
          console.log(res.message);
         node.style.color='green';
         likesCount++
-        node.textContent= likesCount+' likes'
+        node.innerHtml='<i class="fas fa-thumbs-up" id="post{{this.id}}"></i>' + likesCount+' likes'
       }
       else if (res.success&&res.message=='deleted') {
         console.log(res.message);
         node.style.color='black';
         likesCount--
-        node.textContent= likesCount+' likes'
+        node.innerHtml='<i class="fas fa-thumbs-up" id="post{{this.id}}"></i>' + likesCount+' likes'
         // node.textContent=`${likesCount--} likes`
       }
     })
@@ -92,4 +93,10 @@ if(document.querySelector('.new--post')){
     document.querySelector('.createPostHome').classList.toggle('hidden');
   })
 }
-  
+
+if(document.querySelector('.user--info')){
+
+  document.querySelector('.user--info').addEventListener('click',()=>{
+    document.querySelector('.logout').classList.toggle('hidden');
+  })
+}
